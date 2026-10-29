@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Folia — 以全屏歌词为核心的沉浸式音乐播放器</title>
+<meta name="description" content="Folia 是一个以全屏沉浸式歌词播放为核心的开源音乐播放器，支持 Windows、macOS、Linux、Web 与本地音乐库，提供多种歌词动画主题与 AI 主题生成。">
+<meta name="theme-color" content="#0b0d12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Folia — 以全屏歌词为核心的沉浸式音乐播放器">
+<meta property="og:description" content="开源音乐播放器。全屏歌词动画、多平台曲库、本地音乐库、AI 主题生成。">
+<meta property="og:locale" content="zh_CN">
+<link rel="icon" href="assets/img/icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/icon-256.png">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  // 仅在支持 IntersectionObserver 且未要求减少动效时启用进场动画，
+  // 其余情况内容直接可见（脚本失效也不会空白）。
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      document.documentElement.classList.add('reveal');
+    }
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Folia 首页">
+      <img src="assets/img/icon-64.png" alt="" width="28" height="28">
+      <span>Folia</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#features">能力</a>
+      <a href="#themes">主题</a>
+      <a href="#platforms">平台</a>
+      <a href="#roadmap">开发中</a>
+    </nav>
+    <a class="nav-cta" href="https://github.com/chthollyphile/folia-major" rel="noopener">GitHub</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">开源 · 跨平台 · 歌词优先</p>
+      <h1>Lyrics Reimagined<br><span class="cn">辞曲新境</span></h1>
+      <p class="lede">
+        Folia 是一个以<strong>全屏沉浸式歌词</strong>为核心的在线与本地音乐播放器。歌词不只是字幕，而是随情绪、配色与排版一起变化的舞台。
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/chthollyphile/folia-major/releases/latest" rel="noopener">
+          下载正式版
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/chthollyphile/folia-major" rel="noopener">查看源码</a>
+        <a class="btn btn-ghost" href="https://folia-site.cielaniska.top/guide/" rel="noopener">使用文档</a>
+      </div>
+      <p class="hero-note">开源项目 · 播放本地音乐无需登录</p>
+    </div>
+
+    <div class="strip" aria-hidden="true">
+      <img src="assets/img/lyric-strip.jpg" alt="" width="2600" height="430" fetchpriority="high">
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">已在正式版中提供</p>
+        <h2>它能做什么</h2>
+      </header>
+
+      <div class="cards">
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 9h10M4 13h16M4 17h7"/></svg>
+          </div>
+          <h3>全屏歌词动画</h3>
+          <p>逐字高亮、整句推进、多行排版等多种歌词动画，随窗口尺寸自适应，像文字 PV 一样铺满整屏。</p>
+        </article>
+
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M9 12h6M12 9v6"/></svg>
+          </div>
+          <h3>多平台曲库</h3>
+          <p>支持网易云、酷狗、QQ 音乐、Navidrome 与本地音乐；桌面端还可接入波点音乐、YouTube Music 与 Spotify。</p>
+        </article>
+
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M9 7V5h6v2"/></svg>
+          </div>
+          <h3>本地音乐库</h3>
+          <p>导入本地音频即可播放，索引信息只保存在本机，不上传任何音频文件内容。</p>
+        </article>
+
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h9M5 18h11"/><circle cx="18" cy="12" r="2"/></svg>
+          </div>
+          <h3>智能歌词匹配</h3>
+          <p>本地歌曲自动匹配在线歌词与封面，匹配错了可以手动修正；同时识别同目录下的 LRC、VTT、TTML、QRC、YRC、KRC 等歌词文件。</p>
+        </article>
+
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/><circle cx="12" cy="12" r="3.2"/></svg>
+          </div>
+          <h3>AI 主题生成</h3>
+          <p>根据歌曲情绪与歌词内容生成背景与视觉参数，让每一首歌拥有自己的色彩。</p>
+        </article>
+
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 5 12l4 8M15 4l4 8-4 8"/></svg>
+          </div>
+          <h3>模组系统 Folium <span class="tag-mini">实验性</span></h3>
+          <p>仅桌面版可用，默认关闭。可通过模组添加歌词动画、背景与页面图层，或从模组市场安装经过审查的模组。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="themes">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">真实运行截图</p>
+        <h2>主题与歌词动画</h2>
+        <p class="sec-sub">同一首歌，八种排版气质。动画参数可调，自动适配不同窗口尺寸。</p>
+      </header>
+
+      <div class="gallery">
+        <figure><img src="assets/img/theme-fume.jpg" alt="浮名主题：深色背景上大字号歌词错落排布" width="1200" height="646" loading="lazy"><figcaption>浮名</figcaption></figure>
+        <figure><img src="assets/img/theme-lumi.jpg" alt="流光主题：歌词以柔和光晕铺满画面" width="1200" height="646" loading="lazy"><figcaption>流光</figcaption></figure>
+        <figure><img src="assets/img/theme-cad.jpg" alt="心象主题：极简几何线条配合歌词" width="1200" height="646" loading="lazy"><figcaption>心象</figcaption></figure>
+        <figure><img src="assets/img/theme-pat.jpg" alt="云阶主题：歌词沿阶梯逐行落下" width="1200" height="646" loading="lazy"><figcaption>云阶</figcaption></figure>
+        <figure><img src="assets/img/theme-cappella.jpg" alt="群唱主题：多行歌词同时呈现" width="1200" height="675" loading="lazy"><figcaption>群唱</figcaption></figure>
+        <figure><img src="assets/img/theme-tilt.jpg" alt="倾诉主题：倾斜排版的对白式歌词" width="1200" height="692" loading="lazy"><figcaption>倾诉</figcaption></figure>
+        <figure><img src="assets/img/theme-diorama.jpg" alt="镜台主题：歌词如展台般分层陈列" width="1200" height="793" loading="lazy"><figcaption>镜台</figcaption></figure>
+        <figure><img src="assets/img/theme-pendolo.jpg" alt="时计主题：歌词随时间轴摆动" width="1200" height="793" loading="lazy"><figcaption>时计</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="platforms">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">现在可以装在</p>
+        <h2>支持的平台</h2>
+      </header>
+
+      <div class="platform-grid">
+        <div class="plat">
+          <h3>Windows</h3>
+          <p>桌面安装包，内置前后端运行环境，装完即用。</p>
+          <span class="pill pill-ok">已发布</span>
+        </div>
+        <div class="plat">
+          <h3>macOS</h3>
+          <p>桌面安装包，Apple silicon 版本另提供网盘下载。</p>
+          <span class="pill pill-ok">已发布</span>
+        </div>
+        <div class="plat">
+          <h3>Linux</h3>
+          <p>提供安装包，另有 AUR 与第三方 Flatpak 渠道。</p>
+          <span class="pill pill-ok">已发布</span>
+        </div>
+        <div class="plat">
+          <h3>Web / PWA</h3>
+          <p>可自托管或用一键部署，浏览器内使用，也能添加到桌面。</p>
+          <span class="pill pill-ok">已发布</span>
+        </div>
+        <div class="plat plat-dim">
+          <h3>Android</h3>
+          <p>原生壳与内置能力仍在开发，暂无公开安装包。现阶段可选 Web 版添加到主屏。</p>
+          <span class="pill pill-wip">开发中</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="roadmap">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow">诚实说明</p>
+        <h2>还在开发中的部分</h2>
+        <p class="sec-sub">
+          下面的能力正在开发或内测，<strong>尚未随正式版发布</strong>。写在这里是为了说明方向，不是承诺发布时间。
+        </p>
+      </header>
+
+      <ul class="road">
+        <li>
+          <div class="road-top"><h3>统一音乐库与跨端收藏</h3><span class="pill pill-wip">开发中</span></div>
+          <p>把网易云、QQ、酷狗、B 站、YouTube Music、Spotify 与本地来源的收藏汇总到一个视图，并支持手动收藏。目前仅在本机开发版内使用，未进入正式版。</p>
+        </li>
+        <li>
+          <div class="road-top"><h3>云同步</h3><span class="pill pill-wip">开发中</span></div>
+          <p>收藏、歌单与视觉设置的跨设备同步。协议与服务器端测试已完成，公网入口尚未上线，因此正式版暂未提供该功能。</p>
+        </li>
+        <li>
+          <div class="road-top"><h3>Android 原生客户端</h3><span class="pill pill-wip">开发中</span></div>
+          <p>基于现有 Web 端的原生封装。部分依赖桌面运行环境的能力（如 QQ、酷狗登录与播放）在移动端仍不可用，因此没有发布安装包。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap narrow">
+      <header class="sec-head">
+        <p class="eyebrow">关于</p>
+        <h2>开源，且只做播放器</h2>
+      </header>
+      <p class="about-p">
+        Folia 的代码托管在 GitHub，采用开源许可发布，欢迎提交 issue 与 PR。
+        本项目不提供、不分发任何音乐内容；在线曲库的可用性取决于各平台自身的版权与接口状态。
+      </p>
+      <div class="cta-row cta-row-left">
+        <a class="btn btn-primary" href="https://github.com/chthollyphile/folia-major" rel="noopener">GitHub 仓库</a>
+        <a class="btn btn-ghost" href="https://github.com/chthollyphile/folia-major/releases/latest" rel="noopener">版本发布</a>
+        <a class="btn btn-ghost" href="https://folia-site.cielaniska.top/guide/" rel="noopener">使用文档</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <img src="assets/img/icon-64.png" alt="" width="22" height="22">
+      <span>Folia</span>
+    </div>
+    <p class="foot-note">本页为项目介绍页面，不托管任何音频内容。</p>
+    <p class="foot-copy">© <span id="year">2026</span> Folia</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    var nav = document.getElementById('nav');
+    var onScroll = function () {
+      if (window.scrollY > 24) nav.classList.add('is-scrolled');
+      else nav.classList.remove('is-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = document.querySelectorAll('.card, .plat, .road li, .gallery figure');
+    var revealAll = function () {
+      items.forEach(function (el) { el.classList.add('in'); });
+    };
+    if (reduce || !('IntersectionObserver' in window)) {
+      revealAll();
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+    // 兜底：2.5 秒后仍未揭示的元素直接显示，避免任何情况下留下空白区
+    setTimeout(function () { io.disconnect(); revealAll(); }, 2500);
+  })();
+</script>
+</body>
+</html>
